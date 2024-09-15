@@ -31,21 +31,10 @@ function deleteTodo(index) {
         writeTodo={writeTodo} 
         addTodo={addTodo}>
       </InputContainer>
-      <div className="container">
-      {
-        todos.map((todo, index) => {
-          return (
-            <div className="todo" key={index}>
-            <p>{todo}</p>
-            <div className="actions">
-              <input type="checkbox" />
-              <button onClick={() => deleteTodo(index)}>Delete</button>
-            </div>
-          </div>
-          );
-        })
-      }
-      </div>
+      <TodoContainer 
+        todos={todos} 
+        deleteTodo={deleteTodo}>
+      </TodoContainer>
     </main>
   );
 }
@@ -63,8 +52,8 @@ function InputContainer({inputVal, addTodo, writeTodo}) {
       </div>
   );
 }
-
-function todoContainer({}) {
+// Pass in {todos, deleteTodo} since todos is accessing the map, creating todo and index
+function TodoContainer({todos, deleteTodo}) {
   return (
     <div className="container">
     {
