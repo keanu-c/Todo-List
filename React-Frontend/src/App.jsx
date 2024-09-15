@@ -27,7 +27,7 @@ function deleteTodo(index) {
     <main>
       <h1>To-Do List</h1>
       <InputContainer
-        inputVal={inputVal} 
+        inputVal={inputVal}
         writeTodo={writeTodo} 
         addTodo={addTodo}>
       </InputContainer>
@@ -59,17 +59,24 @@ function TodoContainer({todos, deleteTodo}) {
     {
       todos.map((todo, index) => {
         return (
-          <div className="todo" key={index}>
-          <p>{todo}</p>
-          <div className="actions">
-            <input type="checkbox" />
-            <button onClick={() => deleteTodo(index)}>Delete</button>
-          </div>
-        </div>
+          <Todo todo={todo}
+           index={index}
+           deleteTodo={deleteTodo}>
+          </Todo>
         );
       })
     }
     </div>
   );
+}
+
+function Todo ({todo, index, deleteTodo}) {
+  <div className="todo" key={index}>
+    <p>{todo}</p>
+    <div className="actions">
+      <input type="checkbox" />
+      <button onClick={() => deleteTodo(index)}>Delete</button>
+    </div>
+  </div>
 }
 export default App
