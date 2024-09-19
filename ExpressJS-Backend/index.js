@@ -18,11 +18,17 @@ const todos = [
 app.get("/", (req, res, next) => {
     res.send("Todo List Homepage");
 });
-// https://localhost:3000/todos returns json from todos
-app.get("/todos", (req, res) =>  {
+// Returns json from todos
+app.get("/todos", (req, res) => {
     res.json(todos);
 });
 
-app.listen(() => {
+app.get("/todos/:id", (req, res) => {
+    console.log(req.params.id);
+    let todo = todos.filter((todo) => todo.id == req.params.id);
+    res.json(todo);
+});
+
+app.listen(port, () => {
     console.log("app is listening in PORT", port);
 });
