@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const bodyParser = require("body-parser");
+const uuid = require("uuid");
+
+app.use(bodyParser.json());
 
 const todos = [
     {
@@ -30,11 +34,14 @@ app.get("/todos/:id", (req, res) => {
 });
 
 app.post("/todos", (req, res) => {
-    todos.push()
-    res.json([]);
+    let body = req.body;
+    console.log(body);
+    todos.push({id: uuid.v4(), ...body});
+    res.json(todos);
 })
 
 app.put("/todos/:id", (req, res) => {
+    let todo = todos.find(todo => todo.id == req.params.id)
     res.json([]);
 })
 
