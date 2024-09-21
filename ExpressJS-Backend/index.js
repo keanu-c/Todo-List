@@ -38,16 +38,24 @@ app.post("/todos", (req, res) => {
     console.log(body);
     todos.push({id: uuid.v4(), ...body});
     res.json(todos);
-})
+});
 
 app.put("/todos/:id", (req, res) => {
-    let todo = todos.find(todo => todo.id == req.params.id)
-    res.json([]);
-})
+    let todo = todos.find(todo => todo.id == req.params.id);
+    if (todo) {
+        todo.desc = req.body.desc;
+        todo.completed = req.body.completed;
+        res.json(todos);
+    } else {
+        res.send("Todo with given id does not exist.");
+    }
+});
 
 app.delete("/todos/:id", (req, res) => {
-    res.json([]);
-})
+    let index = todos.findIndex(todo => todo.id == req.params.id);
+    todos.splice(index, 1);
+    res.json(todos);
+});
 
 app.listen(port, () => {
     console.log("app is listening in PORT", port);
