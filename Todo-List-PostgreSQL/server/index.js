@@ -51,11 +51,11 @@ app.put("/todos/:id", async (req, res) => {
     }
 });
 // DELETE todo with specific id
-/*
 app.delete("/todos/:id", async (req, res) => {
     try {
-        const todo = await pool.query("SELECT * FROM todo_table");
-        res.json(todos.rows);
+        const {id} = req.params;
+        const todo = await pool.query("DELETE FROM todo_table WHERE todo_id = $1", [id]);
+        res.json({msg: "Deleted todo", success: true});
     } catch (error) {
         res.json(error);
     }
@@ -63,14 +63,13 @@ app.delete("/todos/:id", async (req, res) => {
 // DELETE all todos
 app.delete("/todos", async (req, res) => {
     try {
-        const todo = await pool.query("SELECT * FROM todo_table");
-        res.json(todos.rows);
+        const todo = await pool.query("DELETE FROM todo_table");
+        res.json({msg: "Deleted all todos", success: true});
     } catch (error) {
         res.json(error);
     }
 });
-*/
-// Add todos
+// POST todos
 app.post("/todos", async (req, res) => {
     try {
         const {desc, completed} = req.body;
