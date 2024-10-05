@@ -36,7 +36,7 @@ function App() {
       <div className="flex flex-col gap-4 bg-blue-200 p-3 w-5/6 rounded-xl">
         {todos.map((todo, index) => {
           return (
-            <div className="flex justify-between items-center bg-blue-400 text-white p-3 rounded-lg">
+            <div key={todo.todo_id} className="flex justify-between items-center bg-blue-400 text-white p-3 rounded-lg">
 
               <div className="flex gap-2 pl-1">
                 <input type="checkbox" />
