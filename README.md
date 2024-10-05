@@ -1,35 +1,44 @@
 **Todo List App Setup Instructions**
 
-Prerequisites:
-  Node.js and npm installed
-  PostgreSQL installed
+**Prerequisites:**
+Node.js and npm installed
+PostgreSQL installed
 
 Setup Steps:
 
-Clone the repository:
-  git clone [your-repo-url]
-  cd [your-repo-name]
+**Clone the repository:**
+git clone [https://github.com/keanu-c/Todo-List.git]
+cd Todo-List-PostgreSQL/
 
-Install dependencies:
-  npm install
+**Set up the database:**
+Create a PostgreSQL database named: [todo-db]
+Copy and paste this query into a _table_ in [todo-db] in PostgreSQL:
 
-Set up the database:
-  Create a PostgreSQL database
-  Update the database connection details in the backend configuration file
+```SQL
+CREATE TABLE todo_table (
+    todo_id SERIAL PRIMARY KEY,
+    todo_desc VARCHAR(255),
+    todo_completed BOOLEAN DEFAULT false
+)
+```
 
-Set up environment variables:
+Update the database connection details in the backend configuration file: [db.js]
 
-  Create a .env file in the root directory
-  Add necessary environment variables (PG_PASSWORD, PORT)
-  PG_PASSWORD = password of PostgreSQL user of the database in use
+**Set up environment variables:**
 
-Start the backend server:
-npm run server
+Create a .env file in the root directory
+Add necessary environment variables (PG_PASSWORD, PORT)
+PG_PASSWORD = password of PostgreSQL user of the database [todos-db]
 
-In a new terminal, start the frontend development server:
-npm run start
+**In a new terminal, start the backend server:**
+cd server/
+npx nodemon
 
-Open a web browser and navigate to http://localhost:3000 (or whatever port you've specified)
+**In a new terminal, start the frontend development server:**
+cd client/
+npm run dev
 
-Note:
+Open a web browser and navigate to http://localhost:5173 (or whatever port VITE specified in the terminal)
+
+_Note:_
 Ensure that the backend API URL in the frontend code matches your local setup.

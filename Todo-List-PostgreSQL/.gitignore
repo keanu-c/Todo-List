@@ -25,3 +25,5 @@ dist-ssr
 
 # .env file
 .env
+# Beginner Todo file
+./Beginner-Todo
