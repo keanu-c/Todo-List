@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     const resp = axios.get("/todos").then((resp) => {
+      // todos = todos from database
       setTodos(resp.data);
     });
   }, []);
@@ -25,6 +26,7 @@ function App() {
     };
     const resp = await axios.post("/todos", data);
     if (resp.data.success) {
+      // Add new todo to todos array
       setTodos((prevTodos) => [...prevTodos, resp.data.newTodo.rows[0]]);
     }
     setInputTodo("");
@@ -36,6 +38,7 @@ function App() {
     setEditTodoChecked(todo.todo_completed);
     setEditTodoID(todo.todo_id);
   }
+  // new Edit Page
   if (editMode) {
     return (
       <form
@@ -74,7 +77,6 @@ function App() {
       completed: editTodoChecked,
     };
     const resp = await axios.put(`/todos/${editTodoID}`, data);
-
     setEditMode(true);
   }
 
