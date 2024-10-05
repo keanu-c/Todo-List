@@ -12,7 +12,7 @@ cd Todo-List-PostgreSQL/
 
 **Set up the database:**
 Create a PostgreSQL database named: [todo-db]
-Copy and paste this query into a _table_ in [todo-db] in PostgreSQL:
+Copy and paste this query into a _table_ in [todos-db] in PostgreSQL:
 
 ```SQL
 CREATE TABLE todo_table (
