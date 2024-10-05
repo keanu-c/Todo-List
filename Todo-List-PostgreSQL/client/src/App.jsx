@@ -1,9 +1,18 @@
 import { useState, useEffect } from 'react'
-import axios from "axios"
+import axios from "axios";
 
 function App() {
-  const [inputTodo, setInputTodo] = useState("")
+  const [inputTodo, setInputTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+  const [editMode, setEditMode] = useState(false);
+  const [editTodoDesc, setEditTodoDesc] = useState("");
+  const [editTodoID, setEditTodoID] = useState(0);
+  const [editTodoChecked, setEditTodoChecked] = useState(false);
 
+  useEffect(() => {
+      const resp = axios.get("")
+  });
+  
   return (
     <div className="flex flex-col items-center gap-8 pt-8 pb-32 bg-blue-50">
       <div className="text-2xl">Todo List</div>
