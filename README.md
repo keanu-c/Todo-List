@@ -1,5 +1,6 @@
 **Todo List App Setup Instructions**
 Project tutorial from: [https://www.youtube.com/watch?v=fQcr1_8v2xU]
+
 **Prerequisites:**
 Node.js and npm installed
 PostgreSQL installed
