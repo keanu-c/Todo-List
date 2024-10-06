@@ -38,7 +38,7 @@ npx nodemon
 cd client/
 npm run dev
 
-Open a web browser and navigate to http://localhost:5173 (or whatever port VITE specified in the terminal)
+Open a web browser and navigate to http://localhost:number (whatever port VITE specified in the terminal)
 
 _Note:_
 Ensure that the backend API URL in the frontend code matches your local setup.
